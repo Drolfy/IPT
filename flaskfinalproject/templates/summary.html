@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #98ff98; /* Mint green background color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Summary Dashboard</h1>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('dataframe') }}" class="btn btn-info mb-3">View Dataframe Summary</a>
+                    <a href="{{ url_for('view_csv') }}" class="btn btn-info mb-3">View CSV Content</a>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ url_for('chart', chart_type='treatment_duration') }}">Treatment Duration Chart</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('chart', chart_type='treatment_type') }}">Treatment Type Chart</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('chart', chart_type='family_history') }}">Family History Chart</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('chart', chart_type='age_group_survival') }}">Age Group Survival Chart</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('chart', chart_type='age_smoking_heatmap') }}">Age Smoking Heatmap</a></li>
+                </ul>
+                <a href="{{ url_for('overall_insights') }}" class="btn btn-primary mt-3">Overall Insights</a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

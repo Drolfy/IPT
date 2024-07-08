@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .chart {
+            width: 70%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <h2>Insights</h2>
+    <ul>
+        <li><strong>Median BMI:</strong> {{ insights['median_bmi'] }}</li>
+        <li><strong>Survival Rate:</strong> {{ insights['survival_rate'] }}</li>
+        <li><strong>Gender Distribution:</strong> {{ insights['gender_distribution'] }}</li>
+        <li><strong>Cancer Stage Distribution:</strong> {{ insights['cancer_stage_distribution'] }}</li>
+    </ul>
+
+    <h2>Visualizations</h2>
+    <div class="chart">
+        <img src="{{ url_for('static', filename='treatment_duration.png') }}" alt="Treatment Duration">
+        <h3>Treatment Duration and Survival Rate</h3>
+        <ul>
+            <li><strong>Comparison of Treatment Durations:</strong> You can observe whether patients who survived tended to have longer or shorter treatment durations compared to those who did not survive.</li>
+            <li><strong>Critical Treatment Periods:</strong> Identify if there are certain periods of treatment (early, mid, or late) that correlate with higher survival rates.</li>
+        </ul>
+    </div>
+    <div class="chart">
+        <img src="{{ url_for('static', filename='treatment_type.png') }}" alt="End of Treatment Outcomes by Treatment Type">
+        <h3>End of Treatment Outcomes by Treatment Type</h3>
+        <p><strong>Objective:</strong> To compare the effectiveness of different treatment types based on the end of treatment outcomes.</p>
+    </div>
+    <div class="chart">
+        <img src="{{ url_for('static', filename='family_history.png') }}" alt="Impact of Family History on Age of Lung Cancer Onset">
+        <h3>Impact of Family History on Age of Lung Cancer Onset</h3>
+        <p><strong>Objective:</strong> Examining how the presence of a family history of lung cancer influences the age at which the disease typically starts and the distribution of cases across different age groups. It aims to identify patterns that can help in understanding the impact of genetic predisposition on lung cancer onset, thereby informing targeted screening and preventive strategies to improve early detection and treatment outcomes for high-risk individuals.</p>
+    </div>
+    <div class="chart">
+        <img src="{{ url_for('static', filename='age_group_survival.png') }}" alt="Survival Status by Age Group">
+        <h3>Survival Status by Age Group</h3>
+        <p>Analyzing survival status by age group reveals distinct patterns in health outcomes across different life stages. This analysis aims to elucidate how age influences survival rates, providing critical insights into healthcare needs and interventions tailored to enhance longevity and quality of life.</p>
+    </div>
+    <div class="chart">
+        <img src="{{ url_for('static', filename='age_smoking_heatmap.png') }}" alt="Survival Rate by Age Group and Smoking Status">
+        <h3>Survival Rate by Age Group and Smoking Status</h3>
+        <p>Analyzes how age and smoking status together affect the survival rate of lung cancer patients, identifying the high-risk groups and informing targeted interventions to improve survival outcomes.</p>
+    </div>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
